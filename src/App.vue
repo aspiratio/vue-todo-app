@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
-import TestComponent from './components/TestComponent.vue'
+import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
@@ -8,9 +7,10 @@ import TestComponent from './components/TestComponent.vue'
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
+      <RouterLink to="/test">Test</RouterLink>
     </nav>
   </header>
-  <TestComponent text="propsを試した" />
+  <RouterView />
 </template>
 
 <style scoped>
