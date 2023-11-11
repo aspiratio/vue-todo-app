@@ -9,6 +9,7 @@ const myMethod = () => {
   alert('メソッド実行')
 }
 const name = ref('')
+const fruitsList = ['りんご', 'いちご', 'バナナ']
 </script>
 
 <template>
@@ -18,12 +19,16 @@ const name = ref('')
 
   <img v-bind:src="imageUrl" />
   <!-- 省略した書き方 -->
-  <img :src="imageUrl" />
+  <!-- <img :src="imageUrl" /> -->
 
   <button v-on:click="myMethod">メソッド実行</button>
   <!-- 省略した書き方 -->
-  <button @click="myMethod">メソッド実行</button>
+  <!-- <button @click="myMethod">メソッド実行</button> -->
 
   <input type="text" id="name" v-model="name" />
   <p>入力された名前: {{ name }}</p>
+
+  <ul>
+    <li v-for="fruit in fruitsList" :key="fruit.id">{{ fruit }}</li>
+  </ul>
 </template>
