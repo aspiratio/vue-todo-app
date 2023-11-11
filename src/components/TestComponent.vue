@@ -9,7 +9,7 @@ const myMethod = () => {
   alert('メソッド実行')
 }
 const name = ref('')
-const fruitsList = ['りんご', 'いちご', 'バナナ']
+const fruitsList = ['みかん', 'いちご', 'りんご']
 </script>
 
 <template>
@@ -31,4 +31,11 @@ const fruitsList = ['りんご', 'いちご', 'バナナ']
   <ul>
     <li v-for="fruit in fruitsList" :key="fruit.id">{{ fruit }}</li>
   </ul>
+
+  <!-- v-ifは非表示になる時に「削除」される。v-showは非表示になるだけなので、レンダリングしなくていい。ただしv-showにelseはない -->
+  <p v-if="fruitsList[0] == 'りんご'">最初の要素はりんごです</p>
+  <p v-else-if="fruitsList[1] == 'りんご'">2番目の要素はりんごです</p>
+  <p v-else>3番目の要素はりんごです</p>
+
+  <p v-show="fruitsList[0] == 'りんご'">最初の要素はりんごです</p>
 </template>
