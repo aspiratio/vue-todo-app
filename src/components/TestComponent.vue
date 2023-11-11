@@ -1,8 +1,9 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onBeforeMount, onMounted, onBeforeUpdate, onUpdated } from 'vue'
 defineProps({
   text: String
 })
+
 const dataTest = 'これはデータです'
 const imageUrl = 'https://source.unsplash.com/random/200x200'
 const myMethod = () => {
@@ -10,9 +11,27 @@ const myMethod = () => {
 }
 const name = ref('')
 const fruitsList = ['みかん', 'いちご', 'りんご']
+
+// ライフサイクルフック
+console.log('beforeCreate フック: コンポーネントが初期化される直前')
+console.log('created フック: コンポーネントが初期化された直後')
+onBeforeMount(() => {
+  console.log('beforeMount フック: DOMにマウントされる直前')
+})
+onMounted(() => {
+  console.log('mounted フック: DOMにマウントされた直後')
+})
+onBeforeUpdate(() => {
+  console.log('beforeUpdate フック: コンポーネントが再描画される直前')
+})
+onUpdated(() => {
+  console.log('update フック: コンポーネントが再描画された直後')
+})
 </script>
 
 <template>
+  <p>{{ text }}</p>
+
   <p>{{ dataTest }}</p>
 
   <p v-text="dataTest"></p>
@@ -38,4 +57,6 @@ const fruitsList = ['みかん', 'いちご', 'りんご']
   <p v-else>3番目の要素はりんごです</p>
 
   <p v-show="fruitsList[0] == 'りんご'">最初の要素はりんごです</p>
+
+  <button @click="$emit('submit', '子コンポーネントから送られたデータ')">Submit</button>
 </template>
