@@ -2,8 +2,9 @@
 defineProps({
   text: String
 })
+const dataTest = 'これはデータです'
 </script>
 
 <template>
-  <p>{{ text }}</p>
+  <p v-text="dataTest"></p>
 </template>
