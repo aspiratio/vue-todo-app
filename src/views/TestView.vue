@@ -1,5 +1,6 @@
 <script setup>
 import TestComponent from '../components/TestComponent.vue'
+import TestVuetify from '../components/TestVuetify.vue'
 
 //submit
 const handleMessage = (submit) => {
@@ -10,6 +11,6 @@ const handleMessage = (submit) => {
 <template>
   <div class="test">
     <TestComponent text="propsを試した" @submit="handleMessage" />
-    <!-- <p>{{ receivedMessage }}</p> -->
+    <TestVuetify />
   </div>
 </template>
